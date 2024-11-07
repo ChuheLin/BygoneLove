@@ -19,6 +19,25 @@
         }
 
         type();
+
+        // 正计时功能
+        function updateTimer() {
+            const startTime = new Date("2016-12-24T19:00:00Z"); // 设定起始时间
+            const now = new Date();
+            const elapsed = now - startTime; // 计算已过时间
+
+            const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = 
+                `${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
+
+            setTimeout(updateTimer, 1000); // 每秒更新
+        }
+
+        updateTimer(); // 初始化计时器
     });
 </script> 
 
@@ -99,6 +118,16 @@
         #typewriter-text {
             display: inline;
         }
+
+        #timer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            color: #333;
+            font-size: 1rem;
+            font-family: Arial, sans-serif;
+        }
     </style>
 </head>
 
@@ -110,6 +139,9 @@
             <span id="typewriter-text"></span> <!-- 这里将添加打字效果的文字 -->
         </p> 
     </main>
+    
+    <!-- 正计时显示区域 -->
+    <div id="timer"></div>
 </body>
 
 </html>
