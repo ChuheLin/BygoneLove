@@ -1,11 +1,25 @@
-<!-- 2016~2018 -->
-<!-- 2019 -->
 <!DOCTYPE html>
 
 <script type="text/javascript" language="javascript">
-    if(window.console && window.console.log) {  
+    if (window.console && window.console.log) {  
         console.log("。");
     }  
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const text = "祝你早安，午安，晚安，没能和你结婚是我一生的遗憾，但万幸的是我还可以偷偷爱着你";
+        const target = document.getElementById("typewriter-text");
+        let index = 0;
+
+        function type() {
+            if (index < text.length) {
+                target.innerHTML += text[index];
+                index++;
+                setTimeout(type, 100); // 调整速度，值越小速度越快
+            }
+        }
+
+        type();
+    });
 </script> 
 
 <html lang="en">
@@ -78,6 +92,11 @@
         .instructions[zdandfly] {
             text-align: center;
             text-indent: 1ch;
+            white-space: pre-wrap;
+        }
+
+        #typewriter-text {
+            display: inline;
         }
 
         .bg[zdandfly] {
@@ -98,12 +117,10 @@
         <h1 zdandfly>小朋友</h1>
 
         <p class="instructions" zdandfly>
-            祝你早安，午安，晚安，没能和你结婚是我一生的遗憾，但万幸的是我还可以偷偷爱着你
+            <span id="typewriter-text"></span> <!-- 这里将添加打字效果的文字 -->
         </p> 
         <img class="bg" src="/bg/2016-12-24.jpg" zdandfly>
     </main>
 </body>
 
 </html>
-
-
