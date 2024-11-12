@@ -12,7 +12,7 @@
 
         function type() {
             if (index < text.length) {
-                target.textContent += text[index]; // 使用 textContent 替换 innerHTML
+                target.innerHTML += text[index]; // 使用 innerHTML 支持 <br> 标签
                 index++;
                 setTimeout(type, 100); // 调整速度，值越小速度越快
             }
