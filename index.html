@@ -6,17 +6,17 @@
     }  
 
     document.addEventListener("DOMContentLoaded", function() {
-        const text = "祝你早安，午安，晚安，没能和你结婚是我一生的遗憾，无声的思念让我痛苦<br>复杂的孤独令我悲伤，永不打扰是我的诺言，不过还好我可以偷偷想你";
-        const target = document.getElementById("typewriter-text");
-        let index = 0;
+            const text = "祝你早安，午安，晚安，没能和你结婚是我一生的遗憾，无声的思念让我痛苦<br>复杂的孤独令我悲伤，永不打扰是我的诺言，不过还好我可以偷偷想你";
+            const target = document.getElementById("typewriter-text");
+            let index = 0;
 
-        function type() {
-            if (index < text.length) {
-                target.innerHTML += text[index]; // 使用 innerHTML 支持 <br> 标签
-                index++;
-                setTimeout(type, 100); // 调整速度，值越小速度越快
+            function type() {
+                if (index < text.length) {
+                    target.innerHTML += text[index]; // 使用 innerHTML 支持 <br> 标签
+                    index++;
+                    setTimeout(type, 100); // 调整速度，值越小速度越快
+                }
             }
-        }
 
         type();
 
