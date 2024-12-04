@@ -1,176 +1,161 @@
 <!DOCTYPE html>
-
-<script type="text/javascript" language="javascript">
-    if (window.console && window.console.log) {  
-        console.log("。");
-    }  
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const text = `
-(2015.9)第一次看到你我觉得这个女生好漂亮，难道这是喜欢的感觉吗？
-(2016.1)这段时间我脸上痘痘好严重，我很抑郁，我害怕见人
-(2016.?)某天我非常想死，我觉得我应该离开这个世界，但是后面我停下来了
-(2016.?)啊？好像你也喜欢我，不然为什么你愿意每天和我聊天聊到凌晨两三点
-(2016.?)我想你绝对喜欢我，不然为什么在我面前这么害羞，还总陪我玩游戏
-(2016.?)我确定了，你真的也喜欢我，但是还不完全确定，再看看
-(2016.?)寒假我们居然每天都能聊到深夜凌晨，我们到底在聊什么？
-(2016.?)我应该策划一下表白场景，电视剧里都用的套路我不能再用，别人说过的那些话我不能再说
-(2016.12)12月7号是你生日，生日前的周末我们一起吃了个饭然后去操场散了散步
-(2016.12)我应该怎么自然引出要表白这个话题呢？我想了一段时间，我找到了一个稍微自然的话题
-(2016.12.24)我成功了！
-(2017)我非常开心，好像每天都特别兴奋
-(2017.12)好像要中考了，我要在你面前表现一下，你看我只是稍微学了学，我就一下子考到了年级第14
-(2018)我们真是天作之合，才子配佳人啊，你看我再稍微学了学我就考到了年级第二，全县第8
-(2018)我每天学得特别痛苦，但我想到这一切都是为了两个人的未来，我觉得非常有动力
-(2018)有天班主任叫我去办公室，她说你只是一时喜欢我而不会永远喜欢我，我回去思考了一段时间这句话
-(2018.6)我觉得你这么漂亮，追求者这么多，你不可能永远陪着我，你实在是太漂亮了，我想我没什么东西可以支撑你的美丽
-(2018.7)中考成绩出来了，我数学只考了95分，知道成绩后我哭了出来我觉得自己很失败
-(2018.7)我无法想象分隔两地的日子，我不知道怎么办，我不知道怎么说，在北京的那一周我每天非常煎熬
-(2018.7)其实我虽然有点动摇觉得自己不配，但我还爱你，这两星期是我在北京，我没智能手机所以我们断联了
-(2018.7)看到你终于提出分手，我决定评估一下，我以前没想过，但最近我总有一个声音说“她肯定会和别人走的，那时候你就什么都没了”
-(2018.8)我也觉得我们应该分手，我想你离开我后应该很快就会走出来，而我也是，所以这大概率是可以接受的
-(2018.9)我去到一个离家很远的地方读书，我很痛苦，这种感觉令人难受
-(2018.11)我很难过，我是觉得你不会一直选择我，但我发掘我依然爱你，我应该重新联系你
-(2019.1)太好了，我们又在一起了，这次我一定会坚定维护我们这段感情
-(2019.2)不明白为什么，虽然你答应和我重新在一起，但我的痛苦似乎没有减轻，我更加怀疑自己，更加自卑和自责
-(2019.2)我很害怕，我觉得我非常糟糕，也许你离开我有更广阔的天地，我痘痘似乎也越来越多了，我很痛苦
-(2019.4)这个月真的很忙，你认为我又不在乎你而提出分手，其实我知道你可能只是随便说说，但我有些想同意
-(2019.?)好吧，我认为这次分手你应该是经过了慎重考虑的，也许我们真的不合适，我最近很痛苦，即使和你重新在一起我依然有种痛苦感
-(2019.6)为什么你会觉得我分手后会打你，这让我很难过，我感到羞耻，我看上去可能真的很糟糕
-(2020.1)困在家里我很想联系你，但我还是忍住了，我想着寒假去看医生，结果来了疫情
-(2020.5)我终于有勇气去找你，找完以后我也终于明白也许还是永不打扰好一些
-(2020.6)我认为证明我喜欢的从来不是你的漂亮的唯一方式就是永远不打扰，当然如今这更多表明我爱的只是一个概念
-(2020.12)时间真快，好像快高考了，但我一点儿也学不进去，我不想上学
-(2021.1)我不想上学，我坐不下来安静不了，还有个同学偶尔会欺负我，我很痛苦，我非常想念你
-(2021.1)无声的思念让我痛苦，复杂的孤独令我悲伤，永不打扰是我的底线，不过还好我可以偷偷想你
-(2021.7)我去佛山复读了，我感觉自己实在是太糟糕了，为什么我失去了爱情，学业也如此糟糕
-(2022.6)我去佛山读的那一年，这个月我回肇庆考试的时候看到你也在复读，我想打电话问问，结果是在拨通前那一刻我删除了联系人信息
-(2022.6)要不要加微信问一句呢？算了还是别，我无法想象那种尴尬的感觉
-(2022.7)这个复读成绩在我意料之外，我只考了570分，而我的数学居然只有72分，我想正常情况我应该是620分的
-(2022.7)我只能上一个很普通的学校，这让我感到自己很失败，得知你上了本科我为你感到开心因为你取得了进步
-(2022.8)看到你似乎有了新男友，你们看上去非常恩爱，我很开心，只是当我第一次知道的时候，会有点吃醋的感觉
-(2022.8)人们说我想你是因为我找不到新的女朋友，这是有点道理的，但应该不是原因而是状态，况且这是循环论证，逻辑不太成立
-(2022.12)你读过《窄门》吗，我想也许我喜欢的从来都只是一个概念而非具体的人
-(2024)祝你早安，午安，晚安，我今年22岁了，没能和你结婚是我一生的遗憾`;
-        
-        const target = document.getElementById("typewriter-text");
-        let index = 0;
-        
-        function type() {
-            if (index < text.length) {
-                if (text[index] === '\n') {
-                    target.innerHTML += '<br>';  // 如果遇到换行符 '\n'，则插入 <br> 标签
-                } else {
-                    target.innerHTML += text[index];  // 否则显示字符
-                }
-                index++;
-                setTimeout(type, 100);  // 每100ms显示下一个字符
-            }
-        }
-
-        type();
-
-        // 正计时功能
-        function updateTimer() {
-            const startTime = new Date("2016-12-24T19:00:00Z"); // 设定起始时间
-            const now = new Date();
-            const elapsed = now - startTime; // 计算已过时间
-
-            const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
-
-            document.getElementById("timer").textContent = 
-                `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
-
-            setTimeout(updateTimer, 1000); // 每秒更新
-        }
-
-        updateTimer(); // 初始化计时器
-    });
-</script> 
-
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="FLY, 祝你，早安，午安，晚安。">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="generator" content="Astro v4.5.5">
     <title>大蜀黍 / 小朋友</title>
-    <script defer data-domain="zdandfly.love" src="https://p.vrp.moe/js/script.js"></script>
     <style>
         :root {
-            --accent: 136, 58, 234;
-            --accent-light: 224, 204, 250;
-            --accent-dark: 49, 10, 101;
-            --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
+            --accent: #886ae7;
+            --accent-light: #a6c1ee;
+            --background: #f0f0f0;
+            --content-bg: #ffffff;
+            --arrow-color: #886ae7;
+            --text-color: #333333;
+            --header-color: #ffffff;
+            --hover-bg: rgba(136, 106, 231, 0.1);
         }
 
         html {
-            font-family: system-ui, sans-serif;
-            background: #fff;
-            color: #000;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--background);
+            color: var(--text-color);
         }
 
         body {
             margin: 0;
+            position: relative;
         }
 
-        code {
-            font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        a {
-            color: #fb5291;
-            text-decoration: none;
-        }
-
-        main[zdandfly] {
+        main {
+            padding: 40px 20px;
+            background: var(--background);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            font-size: 20px;
-            color: #fff;
-            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
         }
 
-        h1[zdandfly] {
+        h1 {
             font-size: 3rem;
             font-weight: 700;
             line-height: 1.2;
             text-align: center;
             margin: 1rem auto;
+            color: var(--accent);
         }
 
-        /* 针对手机设备的字体调整 */
         @media (max-width: 600px) {
-            h1[zdandfly] {
+            h1 {
                 font-size: 2rem;
             }
         }
 
-        .instructions[zdandfly] {
-            text-align: center;
-            text-indent: 1ch;
-            white-space: normal; /* 确保不保留不必要的空白 */
+        /* 时间轴样式 */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+            margin: 40px 0;
+            padding: 20px 0;
+            /* 中心垂直线 */
+            border-left: 4px solid var(--accent);
         }
 
-        #typewriter-text {
-            display: inline;
+        /* 每个年份的版块 */
+        .timeline-item {
+            position: relative;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            padding-left: 30px;
         }
 
-        #timer {
+        .timeline-item:hover {
+            background-color: var(--hover-bg);
+            border-radius: 8px;
+        }
+
+        /* 年份标识 */
+        .timeline-item::before {
+            content: '';
             position: absolute;
+            left: -16px;
+            top: 5px;
+            width: 24px;
+            height: 24px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--background);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--header-color);
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        /* 年份显示 */
+        .timeline-item .year-header {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* 箭头样式 */
+        .arrow {
+            position: absolute;
+            left: -8px;
+            top: 14px;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 8px solid var(--arrow-color);
+            transform: translateX(-50%);
+            transition: transform 0.3s;
+        }
+
+        /* 展开时旋转箭头 */
+        .timeline-item.active .arrow {
+            transform: translateX(-50%) rotate(90deg);
+        }
+
+        /* 展开内容 */
+        .timeline-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            background-color: var(--content-bg);
+            padding: 0 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item.active .timeline-content {
+            max-height: 1000px; /* 足够大的值以容纳内容 */
+            padding: 20px;
+        }
+
+        /* 回忆条目 */
+        .entry {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #fafafa;
+            border-left: 4px solid var(--accent-light);
+            border-radius: 4px;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 计时器样式 */
+        #timer {
+            position: fixed;
             bottom: 10px;
             width: 100%;
             text-align: center;
@@ -178,20 +163,175 @@
             font-size: 1rem;
             font-family: Arial, sans-serif;
         }
+
+        /* 适配手机设备 */
+        @media (max-width: 600px) {
+            .timeline {
+                padding-left: 10px;
+                border-left: 2px solid var(--accent);
+            }
+
+            .timeline-item {
+                padding-left: 20px;
+            }
+
+            .timeline-item::before {
+                left: -12px;
+                width: 20px;
+                height: 20px;
+            }
+
+            .timeline-item .year-header {
+                font-size: 1.2rem;
+            }
+
+            .arrow {
+                top: 10px;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <main zdandfly>
-        <h1 zdandfly>小朋友</h1>
-
-        <p class="instructions" zdandfly>
-            <span id="typewriter-text"></span> <!-- 这里将添加打字效果的文字 -->
-        </p> 
+    <main>
+        <h1>小朋友</h1>
+        <div class="timeline">
+            <!-- 时间轴内容将由JavaScript动态生成 -->
+        </div>
     </main>
-    
-    <!-- 正计时显示区域 -->
+
+    <!-- 计时器显示区域 -->
     <div id="timer"></div>
+
+    <!-- 引入外部回忆数据文件 -->
+    <script src="memories.js"></script>
+
+    <script>
+        // 函数：按年份归档回忆
+        function archiveMemories(memories) {
+            const archives = {};
+            memories.forEach(memory => {
+                const { year, month, day, content } = memory;
+                if (!archives[year]) {
+                    archives[year] = [];
+                }
+                archives[year].push({
+                    month: month,
+                    day: day,
+                    content: content
+                });
+            });
+            return archives;
+        }
+
+        // 函数：显示回忆内容
+        function showEntries(element, entries) {
+            const contentDiv = element.querySelector('.timeline-content');
+            // 清空之前的内容
+            contentDiv.innerHTML = '';
+
+            // 按月份和日期排序（可选）
+            entries.sort((a, b) => {
+                if (a.month === b.month) {
+                    return (a.day || 0) - (b.day || 0);
+                }
+                return (a.month || 0) - (b.month || 0);
+            });
+
+            // 添加回忆内容
+            entries.forEach(entry => {
+                const div = document.createElement('div');
+                div.classList.add('entry');
+                // 构建日期字符串
+                let dateStr = '';
+                if (entry.month) {
+                    const month = String(entry.month).padStart(2, '0'); // 补充前导零
+                    dateStr += `<strong>${month}月`;
+                    if (entry.day) {
+                        const day = String(entry.day).padStart(2, '0'); // 补充前导零
+                        dateStr += `${day}日</strong>: `;
+                    } else {
+                        dateStr += `</strong>: `;
+                    }
+                }
+                div.innerHTML = `${dateStr}${entry.content}`;
+                contentDiv.appendChild(div);
+            });
+        }
+
+        // 函数：初始化时间轴
+        function initializeTimeline(archives) {
+            const timeline = document.querySelector('.timeline');
+            const years = Object.keys(archives).sort((a, b) => a - b); // 升序排序
+
+            years.forEach(year => {
+                const item = document.createElement('div');
+                item.classList.add('timeline-item');
+                item.dataset.year = year;
+
+                // 年份显示
+                const yearHeader = document.createElement('div');
+                yearHeader.classList.add('year-header');
+                yearHeader.textContent = `${year}年`;
+
+                // 箭头
+                const arrow = document.createElement('div');
+                arrow.classList.add('arrow');
+
+                // 展开内容容器
+                const contentDiv = document.createElement('div');
+                contentDiv.classList.add('timeline-content');
+
+                // 组装元素
+                item.appendChild(yearHeader);
+                item.appendChild(arrow);
+                item.appendChild(contentDiv);
+                timeline.appendChild(item);
+
+                // 事件监听器
+                item.addEventListener('click', function () {
+                    // Toggle active类
+                    item.classList.toggle('active');
+
+                    // 显示或隐藏内容
+                    if (item.classList.contains('active')) {
+                        showEntries(item, archives[year]);
+                    } else {
+                        contentDiv.innerHTML = '';
+                    }
+                });
+            });
+        }
+
+        // 计时器功能
+        function updateTimer() {
+            const startTime = new Date("2016-12-24T19:00:00Z"); // 设定起始时间
+            const now = new Date();
+            const elapsed = now - startTime; // 计算已过时间
+
+            if (elapsed < 0) {
+                document.getElementById("timer").textContent = "计时器尚未开始。";
+                return;
+            }
+
+            const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
+            const hours = String(Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+            const minutes = String(Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+            const seconds = String(Math.floor((elapsed % (1000 * 60)) / 1000)).padStart(2, '0');
+
+            document.getElementById("timer").textContent =
+                `${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
+
+            setTimeout(updateTimer, 1000);
+        }
+
+        // 初始化页面
+        document.addEventListener("DOMContentLoaded", function () {
+            const archives = archiveMemories(memories);
+            initializeTimeline(archives);
+            updateTimer(); // 初始化计时器
+        });
+    </script>
 </body>
 
 </html>
