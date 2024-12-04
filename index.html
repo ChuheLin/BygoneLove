@@ -16,10 +16,13 @@
             --text-color: #333333;
             --header-color: #ffffff;
             --hover-bg: rgba(136, 106, 231, 0.1);
+            --paper-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --paper-border: 1px solid #e0e0e0;
+            --font-family-paper: 'Georgia', 'Times New Roman', serif;
         }
 
         html {
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--font-family-paper);
             background: var(--background);
             color: var(--text-color);
         }
@@ -32,9 +35,21 @@
             background: var(--background);
         }
 
+        /* 纸张容器样式 */
+        .paper-container {
+            background-color: var(--content-bg);
+            box-shadow: var(--paper-shadow);
+            border: var(--paper-border);
+            margin: 20px auto;
+            padding: 40px 30px;
+            max-width: 900px;
+            width: 90%;
+            border-radius: 8px;
+            position: relative;
+        }
+
         main {
-            padding: 40px 20px;
-            background: var(--background);
+            padding: 0;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -223,17 +238,25 @@
                 font-size: 0.9rem;
                 padding: 8px 0;
             }
+
+            /* 调整纸张容器的边距和内边距 */
+            .paper-container {
+                margin: 10px;
+                padding: 20px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <main>
-        <h1>小朋友</h1>
-        <div class="timeline">
-            <!-- 时间轴内容将由JavaScript动态生成 -->
-        </div>
-    </main>
+    <div class="paper-container">
+        <main>
+            <h1>小朋友</h1>
+            <div class="timeline">
+                <!-- 时间轴内容将由JavaScript动态生成 -->
+            </div>
+        </main>
+    </div>
 
     <!-- 计时器显示区域 -->
     <div id="timer"></div>
