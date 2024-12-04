@@ -244,6 +244,46 @@
                 margin: 10px;
                 padding: 20px;
             }
+
+            /* 调整按钮在小屏幕上的大小和位置 */
+            #toggle-all-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+
+        /* 全部展开/收起按钮样式 */
+        #toggle-all-btn {
+            position: fixed;
+            bottom: 20px; /* 距离底部20px */
+            right: 20px;  /* 距离右侧20px */
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent);
+            color: var(--header-color);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 1000; /* 确保按钮在最上层 */
+        }
+
+        #toggle-all-btn:hover {
+            background-color: var(--accent-light);
+            transform: scale(1.1);
+        }
+
+        #toggle-all-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(136, 106, 231, 0.5);
         }
     </style>
 </head>
@@ -260,6 +300,11 @@
 
     <!-- 计时器显示区域 -->
     <div id="timer"></div>
+
+    <!-- 全部展开/收起按钮 -->
+    <button id="toggle-all-btn" aria-label="Expand All" title="全部展开/收起">
+        ▶
+    </button>
 
     <!-- 引入外部回忆数据文件 -->
     <script src="memories.js"></script>
@@ -383,9 +428,56 @@
             setTimeout(updateTimer, 1000);
         }
 
+        // 获取按钮元素
+        const toggleAllBtn = document.getElementById('toggle-all-btn');
+
+        // 初始状态：收起所有
+        let allExpanded = false;
+        let archives = {}; // 全局变量
+
+        // 函数：展开所有条目
+        function expandAll() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                if (!item.classList.contains('active')) {
+                    item.classList.add('active');
+                    const year = item.dataset.year;
+                    showEntries(item, archives[year]);
+                }
+            });
+            // 更新按钮图标
+            toggleAllBtn.textContent = '❚❚'; // 暂停符号
+            toggleAllBtn.setAttribute('aria-label', 'Collapse All');
+        }
+
+        // 函数：收起所有条目
+        function collapseAll() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active');
+                    const contentDiv = item.querySelector('.timeline-content');
+                    contentDiv.innerHTML = '';
+                }
+            });
+            // 更新按钮图标
+            toggleAllBtn.textContent = '▶'; // 播放符号
+            toggleAllBtn.setAttribute('aria-label', 'Expand All');
+        }
+
+        // 按钮点击事件处理
+        toggleAllBtn.addEventListener('click', function () {
+            if (allExpanded) {
+                collapseAll();
+            } else {
+                expandAll();
+            }
+            allExpanded = !allExpanded;
+        });
+
         // 初始化页面
         document.addEventListener("DOMContentLoaded", function () {
-            const archives = archiveMemories(memories);
+            archives = archiveMemories(memories); // 将 archives 设置为全局变量
             initializeTimeline(archives);
             updateTimer(); // 初始化计时器
         });
