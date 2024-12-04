@@ -1,6 +1,18 @@
 // memories.js
 const memories = [
     {
+        year: 2002,
+        month: 11,
+        day: 14,
+        content: "大蜀黍破壳日"
+    },
+    {
+        year: 2002,
+        month: 12,
+        day: 7,
+        content: "小朋友破壳日"
+    },
+    {
         "year": 2015,
         "month": 9,
         "day": null,
