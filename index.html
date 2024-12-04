@@ -45,7 +45,7 @@
             max-width: 900px;
             width: 90%;
             border-radius: 8px;
-            position: relative;
+            position: relative; /* 保持相对定位 */
         }
 
         main {
@@ -86,7 +86,7 @@
         .timeline-item {
             position: relative;
             margin: 20px 0;
-            cursor: pointer;
+            cursor: default;
             transition: background-color 0.3s;
             padding-left: 30px;
         }
@@ -120,6 +120,7 @@
             font-size: 1.5rem;
             font-weight: 600;
             color: var(--accent);
+            cursor: pointer;
         }
 
         /* 箭头样式 */
@@ -253,13 +254,20 @@
                 bottom: 15px;
                 right: 15px;
             }
+
+            /* 调整按钮位置以确保不超出容器 */
+            #toggle-all-btn {
+                position: absolute; /* 移动端绝对定位 */
+                bottom: 20px; /* 距离容器底部20px */
+                right: 20px; /* 距离容器右侧20px */
+            }
         }
 
         /* 全部展开/收起按钮样式 */
         #toggle-all-btn {
-            position: fixed;
+            position: fixed; /* 默认固定定位，用于桌面端 */
             bottom: 20px; /* 距离底部20px */
-            right: 20px;  /* 距离右侧20px */
+            right: 20px; /* 距离右侧20px */
             width: 60px;
             height: 60px;
             background-color: var(--accent);
@@ -272,18 +280,21 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: background-color 0.3s, transform 0.3s, opacity 0.3s;
             z-index: 1000; /* 确保按钮在最上层 */
+            opacity: 0.6; /* 设置半透明 */
         }
 
         #toggle-all-btn:hover {
             background-color: var(--accent-light);
             transform: scale(1.1);
+            opacity: 1; /* 悬停时不透明 */
         }
 
         #toggle-all-btn:focus {
             outline: none;
             box-shadow: 0 0 0 3px rgba(136, 106, 231, 0.5);
+            opacity: 1; /* 聚焦时不透明 */
         }
     </style>
 </head>
@@ -296,15 +307,15 @@
                 <!-- 时间轴内容将由JavaScript动态生成 -->
             </div>
         </main>
+
+        <!-- 全部展开/收起按钮 -->
+        <button id="toggle-all-btn" aria-label="Expand All" title="全部展开/收起">
+            ▶
+        </button>
     </div>
 
     <!-- 计时器显示区域 -->
     <div id="timer"></div>
-
-    <!-- 全部展开/收起按钮 -->
-    <button id="toggle-all-btn" aria-label="Expand All" title="全部展开/收起">
-        ▶
-    </button>
 
     <!-- 引入外部回忆数据文件 -->
     <script src="memories.js"></script>
@@ -391,8 +402,9 @@
                 item.appendChild(contentDiv);
                 timeline.appendChild(item);
 
-                // 事件监听器
-                item.addEventListener('click', function () {
+                // 事件监听器绑定到 yearHeader
+                yearHeader.addEventListener('click', function (event) {
+                    event.stopPropagation(); // 防止事件冒泡
                     // Toggle active类
                     item.classList.toggle('active');
 
