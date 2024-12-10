@@ -26,8 +26,8 @@ const memories = [
     },
     {
         "year": 2016,
-        "month": ？,
-        "day": ？,
+        "month": null,
+        "day": null,
         "content": "不知道什么时候开始，好像我们就开始聊天了"
     },
     {
