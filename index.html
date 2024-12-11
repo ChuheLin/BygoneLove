@@ -302,7 +302,7 @@
 <body>
     <div class="paper-container">
         <main>
-            <h1>在这里，我爱你</h1>
+            <h1 id="poem"></h1> <!-- 用 id="poem" 来动态显示诗句 -->
             <div class="timeline">
                 <!-- 时间轴内容将由JavaScript动态生成 -->
             </div>
@@ -487,12 +487,25 @@
             allExpanded = !allExpanded;
         });
 
+        // 读取诗歌文件并随机选择一首
+        async function loadPoem() {
+        const response = await fetch('poems.txt');
+        const text = await response.text();
+        const poems = text.split('\n').map(line => line.trim()).filter(line => line !== '');
+        const randomPoem = poems[Math.floor(Math.random() * poems.length)];
+        document.getElementById('poem').textContent = randomPoem;
+        }
+
         // 初始化页面
         document.addEventListener("DOMContentLoaded", function () {
             archives = archiveMemories(memories); // 将 archives 设置为全局变量
             initializeTimeline(archives);
             updateTimer(); // 初始化计时器
+            loadPoem(); // 加载诗歌
         });
+
+
+        
     </script>
 </body>
 
