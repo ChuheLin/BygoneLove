@@ -4,13 +4,13 @@ const memories = [
         year: 2002,
         month: 11,
         day: 14,
-        content: "我先一步来到这世界"
+        content: "On this day, ZD came into the world."
     },
     {
         year: 2002,
         month: 12,
         day: 7,
-        content: "你紧随其后降临人间"
+        content: "On this day, FLY came into the world."
     },
     {
         "year": 2015,
