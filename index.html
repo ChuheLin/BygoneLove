@@ -496,14 +496,24 @@
         document.getElementById('poem').textContent = randomPoem;
         }
 
-        // 初始化页面
-        document.addEventListener("DOMContentLoaded", function () {
-            archives = archiveMemories(memories); // 将 archives 设置为全局变量
-            initializeTimeline(archives);
-            updateTimer(); // 初始化计时器
-            loadPoem(); // 加载诗歌
-        });
+        // 刷新诗句的函数
+async function loadPoem() {
+    const response = await fetch('poems.txt');
+    const text = await response.text();
+    const poems = text.split('\n').map(line => line.trim()).filter(line => line !== '');
+    const randomPoem = poems[Math.floor(Math.random() * poems.length)];
+    document.getElementById('poem').textContent = randomPoem;
+}
 
+// 页面加载时加载诗句
+document.addEventListener("DOMContentLoaded", function () {
+    archives = archiveMemories(memories); // 将 archives 设置为全局变量
+    initializeTimeline(archives);
+    updateTimer(); // 初始化计时器
+    loadPoem(); // 初始加载诗句
+
+    // 每五秒刷新一次诗句
+    setInterval(loadPoem, 5000);  // 每5000毫秒(5秒)调用一次loadPoem函数
 
         
     </script>
