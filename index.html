@@ -299,53 +299,7 @@
             opacity: 1; /* 聚焦时不透明 */
         }
 
-        /* 确保容器能自适应布局 */
-.memory-item {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;  /* 允许换行 */
-    margin-bottom: 20px; /* 控制间距 */
-    padding: 10px;
-    box-sizing: border-box;
-    border: 1px solid #e0e0e0;
-    background-color: var(--content-bg);
-    box-shadow: var(--paper-shadow);
-}
-
-/* 确保年份部分不超出容器 */
-.year {
-    font-size: 1.2rem;  /* 设置合适的字体大小 */
-    font-weight: bold;
-    margin-right: 15px;
-    white-space: nowrap;  /* 防止年份换行 */
-    overflow: hidden;  /* 防止溢出 */
-    text-overflow: ellipsis;  /* 长年份显示省略号 */
-    flex-shrink: 0;  /* 确保年份不会压缩 */
-}
-
-/* 内容部分允许换行，且控制最大宽度 */
-.content {
-    flex: 1;  /* 让内容占据剩余空间 */
-    font-size: 1rem;
-    line-height: 1.6;
-    word-wrap: break-word; /* 确保文字换行 */
-    overflow: hidden;
-}
-
-/* 手机端响应式样式调整 */
-@media (max-width: 600px) {
-    .memory-item {
-        flex-direction: column;  /* 在小屏幕上让年份和内容垂直排列 */
-        align-items: flex-start; /* 内容左对齐 */
-    }
-    .year {
-        font-size: 1.1rem;  /* 调整字体大小 */
-        margin-bottom: 5px; /* 增加间距 */
-    }
-    .content {
-        font-size: 0.9rem;  /* 在小屏幕上减小字体大小 */
-    }
-}
+        
     </style>
 
     <script>
