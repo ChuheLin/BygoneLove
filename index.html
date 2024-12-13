@@ -86,12 +86,16 @@
 
         /* 每个年份的版块 */
         .timeline-item {
-            position: relative;
-            margin: 20px 0;
-            cursor: default;
-            transition: background-color 0.3s;
-            padding-left: 30px;
+        position: relative;
+        margin: 20px 0;
+        cursor: default;
+        transition: background-color 0.3s;
+        padding-left: 30px;
+        display: flex; /* 使用 flexbox 布局 */
+        flex-direction: column; /* 垂直布局 */
+        align-items: flex-start; /* 内容靠左对齐 */
         }
+
 
         .timeline-item:hover {
             background-color: var(--hover-bg);
@@ -119,11 +123,15 @@
 
         /* 年份显示 */
         .timeline-item .year-header {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--accent);
-            cursor: pointer;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--accent);
+        cursor: pointer;
+        white-space: nowrap; /* 禁止换行 */
+        overflow: visible; /* 允许溢出内容显示 */
+        text-overflow: clip; /* 不裁剪文本 */
         }
+
 
         /* 箭头样式 */
         .arrow {
@@ -202,6 +210,18 @@
             .timeline-item {
                 padding-left: 20px;
             }
+
+            
+            .timeline-item .year-header {
+                font-size: 1.2rem; /* 调整字体大小 */
+                white-space: nowrap; /* 禁止换行 */
+            }
+    
+            .timeline-item {
+                padding-left: 20px; /* 减少左侧内边距 */
+            }
+
+            
 
             .timeline-item::before {
                 left: -12px;
@@ -402,7 +422,9 @@
                 const yearHeader = document.createElement('div');
                 yearHeader.classList.add('year-header');
                 yearHeader.textContent = `${year}年`;
-
+                yearHeader.style.whiteSpace = 'nowrap'; // 禁止换行
+                yearHeader.style.overflow = 'visible'; // 允许溢出
+                yearHeader.style.textOverflow = 'clip'; // 防止裁剪
                 // 箭头
                 const arrow = document.createElement('div');
                 arrow.classList.add('arrow');
