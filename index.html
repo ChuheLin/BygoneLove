@@ -9,217 +9,298 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>大蜀黍 | 小朋友</title>
     <style>
-    :root {
-        --accent: #886ae7;
-        --accent-light: #a6c1ee;
-        --background: #f0f0f0;
-        --content-bg: #ffffff;
-        --arrow-color: #886ae7;
-        --text-color: #333333;
-        --header-color: #ffffff;
-        --hover-bg: rgba(136, 106, 231, 0.1);
-        --paper-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        --paper-border: 1px solid #e0e0e0;
-        --font-family-paper: 'Georgia', 'Times New Roman', serif;
-    }
+        :root {
+            --accent: #886ae7;
+            --accent-light: #a6c1ee;
+            --background: #f0f0f0;
+            --content-bg: #ffffff;
+            --arrow-color: #886ae7;
+            --text-color: #333333;
+            --header-color: #ffffff;
+            --hover-bg: rgba(136, 106, 231, 0.1);
+            --paper-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --paper-border: 1px solid #e0e0e0;
+            --font-family-paper: 'Georgia', 'Times New Roman', serif;
+        }
 
-    html {
-        font-family: var(--font-family-paper);
-        background: var(--background);
-        color: var(--text-color);
-    }
+        html {
+            font-family: var(--font-family-paper);
+            background: var(--background);
+            color: var(--text-color);
+        }
 
-    body {
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        background: var(--background);
-    }
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: var(--background);
+        }
 
-    /* 纸张容器样式 */
-    .paper-container {
-        background-color: var(--content-bg);
-        box-shadow: var(--paper-shadow);
-        border: var(--paper-border);
-        margin: 20px auto;
-        padding: 40px 30px;
-        max-width: 900px;
-        width: 90%;
-        border-radius: 8px;
-        position: relative; /* 保持相对定位 */
-    }
+        /* 纸张容器样式 */
+        .paper-container {
+            background-color: var(--content-bg);
+            box-shadow: var(--paper-shadow);
+            border: var(--paper-border);
+            margin: 20px auto;
+            padding: 40px 30px;
+            max-width: 900px;
+            width: 90%;
+            border-radius: 8px;
+            position: relative; /* 保持相对定位 */
+        }
 
-    main {
-        padding: 0;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+        main {
+            padding: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        line-height: 1.2;
-        text-align: center;
-        margin: 1rem auto;
-        color: var(--accent);
-    }
-
-    @media (max-width: 600px) {
         h1 {
-            font-size: 2rem;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            text-align: center;
+            margin: 1rem auto;
+            color: var(--accent);
         }
-    }
 
-    /* 时间轴样式 */
-    .timeline {
-        position: relative;
-        max-width: 100%; /* 自适应屏幕宽度 */
-        margin: 20px auto;
-        padding: 10px 0;
-        border-left: 4px solid var(--accent); /* 中心垂直线 */
-    }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+        }
 
-    /* 每个年份的版块 */
-    .timeline-item {
-        position: relative;
-        margin: 20px 0;
-        cursor: default;
-        transition: background-color 0.3s;
-        padding-left: 30px;
-        display: flex; /* 使用 flexbox 布局 */
-        flex-direction: column; /* 垂直布局 */
-        align-items: flex-start; /* 内容靠左对齐 */
-        word-break: break-word; /* 防止长文本超出 */
-    }
-
-    .timeline-item:hover {
-        background-color: var(--hover-bg);
-        border-radius: 8px;
-    }
-
-    /* 年份标识 */
-    .timeline-item::before {
-        content: '';
-        position: absolute;
-        left: -16px;
-        top: 5px;
-        width: 24px;
-        height: 24px;
-        background-color: var(--accent);
-        border-radius: 50%;
-        box-shadow: 0 0 0 4px var(--background);
-    }
-
-    /* 年份显示 */
-    .timeline-item .year-header {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: var(--accent);
-        cursor: pointer;
-        white-space: normal; /* 允许换行 */
-        overflow: visible; /* 显示溢出内容 */
-        word-break: break-word; /* 单词可换行 */
-    }
-
-    /* 箭头样式 */
-    .arrow {
-        position: absolute;
-        left: -8px;
-        top: 14px;
-        width: 0;
-        height: 0;
-        border-top: 8px solid transparent;
-        border-bottom: 8px solid transparent;
-        border-right: 8px solid var(--arrow-color);
-        transform: translateX(-50%);
-        transition: transform 0.3s;
-    }
-
-    /* 展开时旋转箭头 */
-    .timeline-item.active .arrow {
-        transform: translateX(-50%) rotate(90deg);
-    }
-
-    /* 展开内容 */
-    .timeline-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.6s ease, padding 0.6s ease;
-        background-color: #ffffff;
-        padding: 0 25px;
-        border-radius: 10px;
-        margin-top: 15px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .timeline-item.active .timeline-content {
-        max-height: 1200px;
-        padding: 20px 25px;
-    }
-
-    /* 回忆条目 */
-    .entry {
-        margin-bottom: 20px;
-        padding: 15px 20px;
-        background-color: #f9f9f9;
-        border-left: 5px solid var(--accent-light);
-        border-radius: 10px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .entry:hover {
-        background-color: #f1f1f1;
-        transform: translateX(5px);
-    }
-
-    .entry:last-child {
-        margin-bottom: 0;
-    }
-
-    /* 适配手机设备 */
-    @media (max-width: 600px) {
+        /* 时间轴样式 */
         .timeline {
-            margin: 10px;
-            padding-left: 8px;
-            border-left: 2px solid var(--accent);
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+            margin: 40px 0;
+            padding: 20px 0;
+            /* 中心垂直线 */
+            border-left: 4px solid var(--accent);
         }
 
+        /* 每个年份的版块 */
         .timeline-item {
-            padding-left: 20px;
+            position: relative;
+            margin: 20px 0;
+            cursor: default;
+            transition: background-color 0.3s;
+            padding-left: 30px;
         }
 
+        .timeline-item:hover {
+            background-color: var(--hover-bg);
+            border-radius: 8px;
+        }
+
+        /* 年份标识 */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -16px;
+            top: 5px;
+            width: 24px;
+            height: 24px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--background);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--header-color);
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        /* 年份显示 */
         .timeline-item .year-header {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            cursor: pointer;
         }
 
+        /* 箭头样式 */
         .arrow {
-            top: 10px;
+            position: absolute;
+            left: -8px;
+            top: 14px;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 8px solid var(--arrow-color);
+            transform: translateX(-50%);
+            transition: transform 0.3s;
         }
 
+        /* 展开时旋转箭头 */
+        .timeline-item.active .arrow {
+            transform: translateX(-50%) rotate(90deg);
+        }
+
+        /* 展开内容 */
         .timeline-content {
-            padding: 0 20px;
-            margin-top: 10px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease, padding 0.6s ease;
+            background-color: #ffffff; /* 优化后的背景色 */
+            padding: 0 25px; /* 增加内边距 */
+            border-radius: 10px; /* 增加圆角 */
+            margin-top: 15px; /* 增加外边距 */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* 增加阴影 */
         }
 
         .timeline-item.active .timeline-content {
-            padding: 15px 20px;
+            max-height: 1200px; /* 增加最大高度 */
+            padding: 20px 25px; /* 保持内边距一致 */
         }
 
+        /* 回忆条目 */
         .entry {
-            padding: 10px 15px;
-            border-left: 4px solid var(--accent-light);
+            margin-bottom: 20px; /* 增加外边距 */
+            padding: 15px 20px; /* 增加内边距 */
+            background-color: #f9f9f9; /* 更柔和的背景色 */
+            border-left: 5px solid var(--accent-light); /* 增加边框宽度 */
+            border-radius: 10px; /* 增加圆角 */
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* 增加阴影 */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* 添加过渡效果 */
         }
 
         .entry:hover {
-            transform: translateX(3px);
+            background-color: #f1f1f1; /* 悬停时稍微变暗 */
+            transform: translateX(5px); /* 悬停时轻微移动 */
         }
-    }
-</style>
 
+        .entry:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 计时器样式 */
+        #timer {
+            background-color: var(--background); /* 设置与网页背景一致的颜色 */
+            text-align: center;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-family: Arial, sans-serif;
+            padding: 10px 0; /* 增加上下内边距，使计时器更易读 */
+            /* 移除固定定位、阴影等 */
+        }
+
+        /* 适配手机设备 */
+        @media (max-width: 600px) {
+            .timeline {
+                padding-left: 10px;
+                border-left: 2px solid var(--accent);
+            }
+
+            .timeline-item {
+                padding-left: 20px;
+            }
+
+            .timeline-item::before {
+                left: -12px;
+                width: 20px;
+                height: 20px;
+            }
+
+            .timeline-item .year-header {
+                font-size: 1.2rem;
+            }
+
+            .arrow {
+                top: 10px;
+            }
+
+            /* 优化移动设备上的回忆条目 */
+            .timeline-content {
+                padding: 0 20px;
+                margin-top: 10px;
+            }
+
+            .timeline-item.active .timeline-content {
+                padding: 15px 20px;
+            }
+
+            .entry {
+                padding: 10px 15px;
+                border-left: 4px solid var(--accent-light);
+            }
+
+            .entry:hover {
+                transform: translateX(3px);
+            }
+
+            /* 调整计时器的字体大小 */
+            #timer {
+                font-size: 0.9rem;
+                padding: 8px 0;
+            }
+
+            /* 调整纸张容器的边距和内边距 */
+            .paper-container {
+                margin: 10px;
+                padding: 20px;
+            }
+
+            /* 调整按钮在小屏幕上的大小和位置 */
+            #toggle-all-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            /* 调整按钮位置以确保不超出容器 */
+            #toggle-all-btn {
+                position: absolute; /* 移动端绝对定位 */
+                bottom: 20px; /* 距离容器底部20px */
+                right: 20px; /* 距离容器右侧20px */
+            }
+        }
+
+        /* 全部展开/收起按钮样式 */
+        #toggle-all-btn {
+            position: fixed; /* 默认固定定位，用于桌面端 */
+            bottom: 20px; /* 距离底部20px */
+            right: 20px; /* 距离右侧20px */
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent);
+            color: var(--header-color);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, transform 0.3s, opacity 0.3s;
+            z-index: 1000; /* 确保按钮在最上层 */
+            opacity: 0.6; /* 设置半透明 */
+        }
+
+        #toggle-all-btn:hover {
+            background-color: var(--accent-light);
+            transform: scale(1.1);
+            opacity: 1; /* 悬停时不透明 */
+        }
+
+        #toggle-all-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(136, 106, 231, 0.5);
+            opacity: 1; /* 聚焦时不透明 */
+        }
+
+        
+    </style>
 
     <script>
     var _hmt = _hmt || [];
@@ -321,9 +402,7 @@
                 const yearHeader = document.createElement('div');
                 yearHeader.classList.add('year-header');
                 yearHeader.textContent = `${year}年`;
-                yearHeader.style.whiteSpace = 'nowrap'; // 禁止换行
-                yearHeader.style.overflow = 'visible'; // 允许溢出
-                yearHeader.style.textOverflow = 'clip'; // 防止裁剪
+
                 // 箭头
                 const arrow = document.createElement('div');
                 arrow.classList.add('arrow');
